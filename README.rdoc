@@ -1,0 +1,1 @@
+A JRuby wrapper for http://code.google.com/p/awaitility/
