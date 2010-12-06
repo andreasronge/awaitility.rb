@@ -1,5 +1,9 @@
 include Java
-require 'awaitility/awaitility-1.3.jar'
+require 'awaitility/awaitility-1.3.1.jar'
+require 'awaitility/cglib-nodep-2.2.jar'
+require 'awaitility/hamcrest-core-1.1.jar'
+require 'awaitility/hamcrest-library-1.1.jar'
+require 'awaitility/objenesis-1.2.jar'
 
 #com.jayway.awaitility.core.ConditionFactor.class_eval do
 #  def until(&block)
@@ -12,7 +16,7 @@ require 'awaitility/awaitility-1.3.jar'
 module Awaitility
   def self.await(&block)
     factory = com.jayway.awaitility.Awaitility.await
-    fact.until(Callable.new(block))
+    factory.until(Callable.new(block))
   end
 
   class Callable
@@ -28,8 +32,6 @@ module Awaitility
 
   end
 end
-
-puts "HEJ"
 
 #include Awaitility
 Awaitility.await do
